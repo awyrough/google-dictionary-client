@@ -29,12 +29,14 @@ class MWDictionaryClient():
         while retry < MAX_RETRY:
             try:
                 resp = self.session.get(search_url)
-            except requests.exceptions.ConnectionError:
+            except requests.exceptions.ConnectionError as e:
                 retry += 1
                 if retry < MAX_RETRY:
                     continue
             else:
                 break
+        else:
+            raise e
         return self._parse_search_results(BeautifulSoup(resp.text), search)
 
     def _parse_search_results(self, soup, search):
