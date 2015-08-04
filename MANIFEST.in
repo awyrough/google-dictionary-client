@@ -1,0 +1,6 @@
+include README.rst
+include LICENSE
+include src/requirements.txt
+include src/__init__.py
+include src/mw-dictionary-client/__init__.py
+include src/mw-dictionary-client/mw_dictionary_client.py
